@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const sqlite3 = require('sqlite3').verbose();
-import { getCookie, setCookie } from 'cookies-next';
+
 
 
 
