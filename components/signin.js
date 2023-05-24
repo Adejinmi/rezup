@@ -41,7 +41,7 @@ export default function SignIn (){
     }
     return(
         <>
-            <div className="lg:w-4/12 md:w-6/12 sm:w-6/12 h-60 m-auto mt-40 shadow-xl text-center border-top-1 border-">
+            <div className="lg:w-4/12 md:w-6/12 sm:w-11/12 h-60 m-auto mt-40 shadow-xl text-center border-top-1 border-">
                 <p className="text-th-blue text-lg font-bold tracking-wider">SIGN IN</p>
                 <form>
                     <input className="put" type='text' placeholder="Username" value={username} onChange={(e)=>{setUsername(e.target.value); setMerr("")}}></input><br />

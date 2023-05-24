@@ -23,7 +23,7 @@ export default function Bar({ setRecord, setDetails }) {
       }
       else{
         
-        const res = await fetch("http://localhost:3000/api/fetchresult",{
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/fetchresult`,{
           method:"POST",
           redirect:"follow",
           headers: {

@@ -13,7 +13,7 @@ export default function MainMenu (){
     const router = useRouter()
     const signOut = async ()=>{
       
-      const res = await fetch("http://localhost:3000/api/signout", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/signout`, {
         method:"POST"
       })
       const mess = await res.json()
