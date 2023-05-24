@@ -22,7 +22,7 @@ export const yearOptions=[
     {value:'500l', label:'500 Level'},
   ]
 
- /* export const deptOptions=[{value:null, label:'Department'}]
+ export const deptOptions=[{value:null, label:'Department'}]
  
  const dept = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/fetchdepartment`,{
     method:"POST"
@@ -32,15 +32,15 @@ export const yearOptions=[
     return data.row.forEach(element => {
         deptOptions.push({value:element.prefix, label:element.dname})
       });
-  }) */
+  }) 
 
-  export const deptOptions=[
+/*   export const deptOptions=[
     {value:null, label:'Level'},
     {value:'100l', label:'100 Level'},
     {value:'200l', label:'200 Level'},
     {value:'300l', label:'300 Level'},
     {value:'400l', label:'400 Level'},
     {value:'500l', label:'500 Level'},
-  ]
+  ] */
  
   
