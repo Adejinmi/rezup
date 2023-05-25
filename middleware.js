@@ -47,6 +47,6 @@ export default async function middleare(req) {
     
     
     export const config = {
-      matcher: ['/','/singlesearch/:path*','/exportsingle/:path*','/api/fetchresult',]
+      matcher: ['/','/singlesearch/:path*','/exportsingle/:path*','/api/fetchresult','/exportdepartment/:path*','/correctdetails/:path*']
     }
 

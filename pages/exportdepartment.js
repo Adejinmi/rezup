@@ -12,6 +12,7 @@ export default function Department(){
      const [level, setLevel] = useState(levelOptions[0])
      const [record, setRecord] = useState()
      const [details, setDetails] = useState()
+     const [butcol, setButcol] = useState("bg-green-blue")
 
      const  submitquery = async ()=>{
         setRecord()
@@ -23,7 +24,7 @@ export default function Department(){
             return alert("All fields are required");
           }
           else{
-            
+            setButcol("bg-gray-500")
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/fetchresult`,{
               method:"POST",
               redirect:"follow",
@@ -40,6 +41,7 @@ export default function Department(){
               } 
             })
             .then(result =>{
+              setButcol("bg-green-blue")
               setRecord(result) 
               setDetails(data)
             })
@@ -69,7 +71,7 @@ export default function Department(){
           <Select value={dept} onChange={(e)=>setDept(e)} options={deptOptions} className='drop' placeholder="Department" /> 
           <Select value={level} onChange={(e)=>setLevel(e)} options={levelOptions} className='drop' placeholder="Level" />
 
-          <button className=" h-10 w-52 inline-block text-sm text-white p-2 bg-green-blue" onClick={()=>{submitquery()}}>Submit</button>
+          <button className={`h-10 w-52 inline-block text-sm text-white p-2 ${butcol}`} onClick={()=>{submitquery()}}>Submit</button>
         </div>
         
         <Result record={record} details={details} isDepartment />

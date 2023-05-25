@@ -6,8 +6,10 @@ import { levelOptions, semOptions, yearOptions, deptOptions } from "./options";
 
 
 export default function Bar({ setRecord, setDetails }) {
+  const [butcol, setButcol] = useState("bg-green-blue")
   
   const  submitquery = async ()=>{
+    setButcol("bg-gray-500")
     setRecord()
     const typ= type=="Name" ? "name" : "matric"
     const data={
@@ -16,13 +18,14 @@ export default function Bar({ setRecord, setDetails }) {
 
     if (query=="") {
       return alert ("Search Field is empty!")
+    
     }
     else{
       if (sem.value==null || year.value==null || level.value==null) {
         return alert("Year, Semester and Level must be Selected");
       }
       else{
-        
+        setButcol("bg-gray-500")
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/fetchresult`,{
           method:"POST",
           redirect:"follow",
@@ -35,6 +38,7 @@ export default function Bar({ setRecord, setDetails }) {
             return window.location.href = response.url
           }
           else{
+            setButcol("bg-green-blue")
             return response.json() 
           } 
         })
@@ -86,7 +90,7 @@ export default function Bar({ setRecord, setDetails }) {
           onSubmit={() => submitquery()}
           placeholder={type}
         />
-        <button className=" h-10 w-2/12 inline-block text-xs text-white p-2 bg-green-blue" onClick={()=>{submitquery()}}>Search</button>
+        <button className={`h-10 w-2/12 inline-block text-xs text-white p-2 ${butcol}`} onClick={()=>{submitquery()}}>Search</button>
         <div className="mt-1 w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"

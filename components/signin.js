@@ -5,11 +5,11 @@ export default function SignIn (){
     const [username, setUsername] = useState("") 
     const [password, setPassword] = useState("")
     const [mailerr, setMerr] = useState("") 
-    const [submit, setSubmit] = useState("Submit") 
+    const [submit, setSubmit] = useState("Submit")
+    const [diasble, setDisable] = useState(false) 
     const router = useRouter()
 
     const HandleSubmit= async ()=>{
-       
        const  data={username,password}
        if(username!="" && password!=""){
         const res = await fetch('api/signin', {
@@ -26,13 +26,17 @@ export default function SignIn (){
                    router.push('/')
             }
             else{
+                setDisable(false)
                 setSubmit("Submit")
                 setMerr(response.message)
+                
             }
        }
        else{
+        setDisable(false)
         setSubmit("Submit")
         setMerr("Both fields are required")
+        
        }
         
             
@@ -49,8 +53,9 @@ export default function SignIn (){
                     <input className="put" type='password' placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value); setMerr("")}}></input><br />
                     <p className="text-red-500 text-sm">{mailerr}</p>
                 
-                    <input type='submit' value={submit} className="inline-block w-4/12 mt-5 bg-green-blue text-white p-1 rounded-sm" onClick={(e)=>{e.preventDefault()
+                    <input type='submit' value={submit} disabled={diasble} className="inline-block w-4/12 mt-5 bg-green-blue text-white p-1 rounded-sm" onClick={(e)=>{e.preventDefault()  
                         setSubmit(".....")
+                        setDisable(true)
                         setMerr('')
                         HandleSubmit()
                     }}></input>
