@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         
                   setCookie('Auth',token, { req, res, maxAge: 60 * 60 * 24, sameSite:'strict', path:"/" })
                   
-                  return res.status(200).json({isAuth:true})
+                  return res.status(200).json({isAuth:true, Auth:token})
                }
                else{
                 return res.status(400).json({message:"Invalid username or password"})
